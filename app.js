@@ -45,7 +45,7 @@ app.engine('ejs', ejsMate);
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-      secret: 'mySecretCode',
+      secret: process.env.SECRET,
     },
     touchAfter: 24 * 60 * 60,
 });
@@ -57,7 +57,7 @@ store.on("error", (err)=>{
 
 const selectOps = session({
     store,
-    secret: 'mySecretCode',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -75,7 +75,9 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next) => {
+app.use((req, res, next) => {
+    // console.log('Middleware execution: Setting locals');
+    // console.log('User:', req.user); // Log user information
     res.locals.successMsg = req.flash("success");
     res.locals.errorMsg = req.flash("error");
     res.locals.currUser = req.user;
