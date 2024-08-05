@@ -1,0 +1,109 @@
+<% layout('../layouts/boilerplate') -%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <h1>Edit Your Listing</h1>
+            <form method="post" action="/listings/<%=listing._id%>?_method=put" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name=Listing[title] type="text" value="<%=listing.title%>" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name=Listing[description] type="text" rows="10" cols="30" class="form-control" required><%=listing.description%></textarea>
+                    <div class="invalid-feedback">
+                        Please provide Description.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <p>Original Listing Image</p>
+                    <img class="imageSize" src="<%=listing.image.url%>" alt="Listing Image">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload New Image</label>
+                    <input name=Listing[image] type="file" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input name=Listing[price] type="text" value="<%=listing.price%>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Enter valid Price.
+                    </div>
+
+                    <div class="dropdown mb-3 col-8">
+                        <label for="category" class="form-label">Category</label>
+                        <button class="btn-secondary dropdown-toggle form-control" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="categoryDropdown">
+                            <%= listing.category %>
+                        </button>
+                        <ul class="dropdown-menu" id="categoryMenu">
+                            <li><a class="dropdown-item" data-value="Trending" href="#">Trending</a></li>
+                            <li><a class="dropdown-item" data-value="Rooms" href="#">Rooms</a></li>
+                            <li><a class="dropdown-item" data-value="Iconic cities" href="#">Historic</a></li>
+                            <li><a class="dropdown-item" data-value="Mountain" href="#">Mountains</a></li>
+                            <li><a class="dropdown-item" data-value="Camping" href="#">Camping</a></li>
+                            <li><a class="dropdown-item" data-value="Arctic" href="#">Beachfront</a></li>
+                            <li><a class="dropdown-item" data-value="Boating" href="#">Boating</a></li>
+                            <li><a class="dropdown-item" data-value="Farms" href="#">Farms</a></li>
+                        </ul>
+                        <div class="invalid-feedback">
+                            Please select a category.
+                        </div>
+                        <input name="Listing[category]" type="hidden" id="selectedCategory" value="<%= listing.category %>">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-4">
+                        <label for="location" class="form-label">location</label>
+                        <input name=Listing[location] type="text" value="<%=listing.location%>" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Location.
+                        </div>
+                    </div>
+                    <div class="mb-3 col-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name=Listing[country] type="text" value="<%=listing.country%>" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Country.
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-dark btnEdit mt-3 mb-3">Edit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //category dropdown
+        document.addEventListener("DOMContentLoaded", () => {
+            const categoryDropdown = document.getElementById("categoryDropdown");
+            const categoryMenu = document.getElementById("categoryMenu");
+            const selectedCategoryInput = document.getElementById("selectedCategory");
+            const form = categoryDropdown.closest("form");
+    
+            categoryMenu.addEventListener("click", (event) => {
+                if (event.target.classList.contains("dropdown-item")) {
+                    event.preventDefault(); // Prevent the default action of the anchor tag
+                    const category = event.target.getAttribute("data-value");
+                    categoryDropdown.textContent = category;
+                    selectedCategoryInput.value = category;
+                    categoryDropdown.classList.remove("is-invalid");
+                }
+            });
+    
+            form.addEventListener("submit", (event) => {
+                if (!selectedCategoryInput.value && selectedCategoryInput.value === " ") {
+                    categoryDropdown.classList.add("is-invalid");
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>

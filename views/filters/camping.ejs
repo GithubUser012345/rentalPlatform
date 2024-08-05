@@ -1,0 +1,19 @@
+<% layout('../layouts/boilerplate') -%>
+<%- include("../../includes/filterPanel.ejs") %>
+
+<body>
+    <div class="cards row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(listing of campingListings){ %>
+            <a href="/listings/<%=listing._id%>" class="listing-links">
+                <div class="card listing-card" style="width: 23rem;">
+                    <img src="<%=listing.image.url%>" class="card-img-top" style="height: 20rem;" alt="...">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text"><b><%=listing.title%></b></p>
+                      <p> <b>&#8377; <%=listing.price ? listing.price.toLocaleString("en-IN") : 0%>/night</b> <span class="tax-info"><i>+15% GST</i></span></p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>

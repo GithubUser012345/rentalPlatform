@@ -1,0 +1,168 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.body{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1 !important;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.nav-link{
+    color: #222222 !important;
+}
+.fa-compass{
+    font-size: 2rem;
+    color: #fe424d;
+}
+
+.f-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8rem;
+    background-color: #ededed;
+    color: #222222 !important;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-socials{
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* cards */
+.cards{
+    display: flex;
+}
+
+.card-img-top{
+    width: 100% !important;
+    object-fit: cover;
+    border-radius: 1rem !important; 
+}
+
+.listing-card{
+    padding: 0 !important;
+    margin: 1rem !important;
+    border: none !important;
+}
+
+.card-text{
+    padding: 0;
+}
+/* card overlay */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    background-color: white;
+    opacity: 0.2;
+}
+
+.listing-links{
+    text-decoration: none;
+}
+
+.card-link:hover{
+    text-decoration: underline;
+}
+
+/* new page */
+.btnAdd{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* edit page */
+.btnEdit{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+.imageSize{
+    height: 200px;
+    width: 300px;
+}
+/* show page */
+.showImg{
+    height: 40vh;
+}
+
+.btnShow{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cardImgShow{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.reviewCard{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#map {
+    height: 350px;
+    width: 40vw;
+}
+
+/* filters */
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 1.25rem 0rem 1.25rem;
+}
+.filter:hover{
+    cursor: pointer;
+}
+.form-switch{
+    margin-right: 2.5rem;
+}
+#flexSwitchCheckDefault{
+    cursor: pointer;
+}
+.tax-info{
+    display: none;
+}
+
+/* category dropdown css */
+.dropdown-toggle{
+    background-color: white;
+    color: #222222;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.dropdown-toggle:hover{
+    background-color: white;
+    color: black;
+}

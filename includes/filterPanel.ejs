@@ -1,0 +1,61 @@
+<style>
+    .fliter-link{
+        text-decoration: none;
+        color: black;
+    }
+    .filter:hover{
+        opacity: 0.4;
+    }
+</style>
+<div class="filters">
+    <div class="filter">
+        <a class="fliter-link" href="/filters/trending"><i class="fa-solid fa-fire"></i></a>
+        <a class="fliter-link" href="/filters/trending"><p>Trending</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/rooms"><i class="fa-solid fa-bed"></i></a>
+        <a class="fliter-link" href="/filters/rooms"><p>Rooms</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/historic"><i class="fa-solid fa-city"></i></a>
+        <a class="fliter-link" href="/filters/historic"><p>Historic</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/mountain"><i class="fa-solid fa-mountain"></i></a>
+        <a class="fliter-link" href="/filters/mountain"><p>Mountains</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/camping"><i class="fa-solid fa-campground"></i></a>
+        <a class="fliter-link" href="/filters/camping"><p>Camping</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/beachfront"><i class="fa-solid fa-water"></i></a>
+        <a class="fliter-link" href="/filters/beachfront"><p>Beachfront</p></a>
+    </div>
+    <div class="filter">
+        <a class="fliter-link" href="/filters/boating"><i class="fa-solid fa-ship"></i></a>
+        <a class="fliter-link" href="/filters/boating"><p>Boating</p></a>
+    </div><div class="filter">
+        <a class="fliter-link" href="/filters/farms"><i class="fa-solid fa-cow"></i></a>
+        <a class="fliter-link" href="/filters/farms"><p>Farms</p></a>
+    </div>
+
+    <div class="form-check form-switch toggleButton form-check-reverse ms-auto">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after tax</label>
+    </div>
+</div>
+<script>
+    //tax
+    let toggleButton = document.getElementById("flexSwitchCheckDefault");
+    toggleButton.addEventListener("click", () => {
+        let taxInfo = document.querySelectorAll(".tax-info");
+        for (let tax of taxInfo) {
+            if (tax.style.display !== "inline") {
+                tax.style.display = "inline";
+            } else {
+                tax.style.display = "none";
+            }
+        }
+    });
+</script>
