@@ -35,11 +35,12 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
+// Debug path
+const resolvedPath = path.resolve(__dirname, 'views/layouts/boilerplate.ejs');
+console.log('Resolved Path:', resolvedPath); // Log the resolved path to the console
+
 app.set("view engine", "ejs");
-app.set("views", [
-    path.join(__dirname, "views"),
-    path.join(__dirname, "layouts")
-]);
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
@@ -86,6 +87,7 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 });
+
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);

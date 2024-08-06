@@ -3,23 +3,25 @@ const Review = require("./models/review.js");
 const ExpressError = require("./utils/ErrorClass.js");
 const {ListingObjSchema, ReviewObjSchema} = require("./schemaValidation.js");
 
-module.exports.isAuthenticated = (req,res,next)=>{
-    if(!req.isAuthenticated()){
-        req.session.redirectUrl = req.originalUrl;
+module.exports.isAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        req.session.redirectUrl = req.originalUrl; // Fixed typo
         req.flash("error", "Login to get access");
         return res.redirect("/login");
     }
     next();
-}
+};
 
-module.exports.saveRedirectUrl = (req,res,next) => {
-    if(req.session.redirectUrl){
-        console.log(req.session.redirectUrl);
+module.exports.saveRedirectUrl = (req, res, next) => {
+    if (req.session.redirectUrl) {
+        console.log('Session Redirect URL:', req.session.redirectUrl); // Debugging
         res.locals.redirectUrl = req.session.redirectUrl;
-        console.log('Redirect URL:', res.locals.redirectUrl); // Debugging statement
+        console.log('Locals Redirect URL:', res.locals.redirectUrl); // Debugging
+        delete req.session.redirectUrl; // Clear the session value after using it
     }
     next();
-}
+};
+
 
 module.exports.ownerAccess = async(req,res,next) => {
     const {id} = req.params;

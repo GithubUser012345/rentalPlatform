@@ -166,3 +166,12 @@ html, body {
     background-color: white;
     color: black;
 }
+
+/* filters panel */
+.fliter-link{
+    text-decoration: none;
+    color: black;
+}
+.filter:hover{
+    opacity: 0.4;
+}
