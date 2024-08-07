@@ -35,9 +35,7 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-// Debug path
-const resolvedPath = path.resolve(__dirname, 'views/layouts/boilerplate.ejs');
-console.log('Resolved Path:', resolvedPath); // Log the resolved path to the console
+app.set('views', path.join(__dirname, 'rentalPlatform/views'));
 
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, 'views'));
