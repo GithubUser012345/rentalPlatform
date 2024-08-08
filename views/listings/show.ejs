@@ -84,10 +84,9 @@
     <% if(listing.reviews && listing.reviews.length === 0) { %>
         <div style="text-align: center;">
             <i><b>Be the first to add a review</b></i><br>
-            <small><i>Log in to add a review</i></small>
+            <small><i>must be logged in</i></small>
         </div>
-    <% } else 
-    if(listing.reviews && listing.reviews.length>0) { %> -->
+    <% } else if(listing.reviews && listing.reviews.length>0) { %>
         <div class="row">
             <div class="col-8 offset-3 mt-3 mb-3">
                 <div class="row reviewCards">
