@@ -1,3 +1,16 @@
+<style>
+    @media (max-width: 1000px) {
+        .filters .filter {
+            display: none;
+        }
+        .filters .filter:first-child {
+            display: flex;
+        }
+        .filters .taxDisplayDiv {
+            display: flex;
+        }
+    }
+</style>
 <div class="filters">
     <div class="filter">
         <a class="fliter-link" href="/filters/trending"><i class="fa-solid fa-fire"></i></a>
@@ -31,9 +44,11 @@
         <a class="fliter-link" href="/filters/farms"><p>Farms</p></a>
     </div>
 
-    <div class="form-check form-switch toggleButton form-check-reverse ms-auto">
-        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after tax</label>
+    <div class="taxDisplayDiv">
+        <div class="form-check form-switch toggleButton form-check-reverse ms-auto">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display total after tax</label>
+        </div>
     </div>
 </div>
 <script src="/js/taxBtn.js"></script>
