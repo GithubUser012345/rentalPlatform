@@ -156,7 +156,7 @@ html, body {
     display: none;
 }
 
-/* category dropdown css */
+/* category dropdown css edit and new page*/
 .dropdown-toggle{
     background-color: white;
     color: #222222;
@@ -175,3 +175,21 @@ html, body {
 .filter:hover{
     opacity: 0.4;
 }
+
+/* navbar search */
+.search{
+    background-color: white;
+  }
+  .searchBtn{
+    background-color: #fe424d !important;
+    border: #fe424d;
+    color: white;
+    border-radius: 15%;
+  }
+  .searchBtn i{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .searchBar{
+    border-radius: 15%;
+  }

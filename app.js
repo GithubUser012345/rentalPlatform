@@ -86,6 +86,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req,res,next) => {
+    next(new ExpressError(404, "Go to Explore session"));
+});
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
