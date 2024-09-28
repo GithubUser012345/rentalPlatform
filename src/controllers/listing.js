@@ -72,7 +72,7 @@ module.exports.showListing = async (req,res) =>{
     let {id} = req.params;
     let listing = await Listing.findById(id)
         .populate({path: "reviews", populate: {path: "author"}})
-        .populate("owner");
+        .populate("owner"); //The **populate()** method in Mongoose is used to replace references in your documents with the actual documents from other collections.
     if(!listing){ 
         req.flash("error", "Listing your are searching for does not exsist");
         res.redirect("/listings");

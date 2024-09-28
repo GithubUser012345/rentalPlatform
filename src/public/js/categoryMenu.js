@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryDropdown = document.getElementById("categoryDropdown");
     const categoryMenu = document.getElementById("categoryMenu");
     const selectedCategoryInput = document.getElementById("selectedCategory");
-    const form = categoryDropdown.closest("form");
+    const form = categoryDropdown.closest("form"); //to find the closest <form> element that wraps the categoryDropdown
 
     categoryMenu.addEventListener("click", (event) => {
         if (event.target.classList.contains("dropdown-item")) {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const category = event.target.getAttribute("data-value");
             categoryDropdown.textContent = category;
             selectedCategoryInput.value = category;
-            categoryDropdown.classList.remove("is-invalid"); // bootstrap form validation class
+            categoryDropdown.classList.remove("is-invalid"); // bootstrap form validation class for errors
         }
     });
 
