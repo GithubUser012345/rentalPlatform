@@ -105,7 +105,9 @@ app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 app.use("/filters", filtersRouter);
 
-
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 //error-handling
 app.all("*", (req,res,next) =>{
